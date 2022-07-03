@@ -1,0 +1,7 @@
+Install-Package Npgsql.EntityFrameworkCore.PostgreSQL -version 5
+Install-Package Npgsql.EntityFrameworkCore.PostgreSQL.Design
+Install-Package Microsoft.EntityFrameworkCore.Design -version 5 Microsoft.EntityFrameworkCore.Design
+
+dotnet tool install --global dotnet-ef
+
+dotnet ef dbcontext scaffold "Host=localhost;Database=Toci.Call2Me;Username=postgres;Password=beatka" Npgsql.EntityFrameworkCore.PostgreSQL -o Models --project Toci.Call2Me.Database.Persistence -f
