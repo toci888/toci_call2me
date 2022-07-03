@@ -11,6 +11,7 @@ namespace Toci.Call2Me.Database.Persistence.Models
             FriendIdusersfriendNavigations = new HashSet<Friend>();
             IncallIdusersNavigations = new HashSet<Incall>();
             IncallIduserscallNavigations = new HashSet<Incall>();
+            Preferences = new HashSet<Preference>();
         }
 
         public int Id { get; set; }
@@ -24,5 +25,6 @@ namespace Toci.Call2Me.Database.Persistence.Models
         public virtual ICollection<Friend> FriendIdusersfriendNavigations { get; set; }
         public virtual ICollection<Incall> IncallIdusersNavigations { get; set; }
         public virtual ICollection<Incall> IncallIduserscallNavigations { get; set; }
+        public virtual ICollection<Preference> Preferences { get; set; }
     }
 }

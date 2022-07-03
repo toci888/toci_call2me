@@ -1,18 +1,13 @@
-﻿drop table Friends;
-drop table Users;
+﻿drop table InCall;
+drop table Friends;
 drop table Preferences;
+drop table Users;
 drop table Status;
 
 create table Status
 (
 	id serial primary key,
 	name text --call to me, available, do not disturb
-);
-
-create table Preferences
-(
-	id serial primary key,
-	AllowFlag int -- 1 2 4 8 
 );
 
 create table Users -- 1 Tomek, 2 Bartek
@@ -22,6 +17,12 @@ create table Users -- 1 Tomek, 2 Bartek
 	surname text,
 	phoneNumber text,
 	idStatus int references Status(id)
+);
+create table Preferences
+(
+	id serial primary key,
+	AllowFlag int, -- 1 2 4 8 
+	idUsers int references users ( id )
 );
 
 create table Friends

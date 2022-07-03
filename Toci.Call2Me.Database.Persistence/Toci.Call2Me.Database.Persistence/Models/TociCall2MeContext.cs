@@ -82,6 +82,13 @@ namespace Toci.Call2Me.Database.Persistence.Models
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Allowflag).HasColumnName("allowflag");
+
+                entity.Property(e => e.Idusers).HasColumnName("idusers");
+
+                entity.HasOne(d => d.IdusersNavigation)
+                    .WithMany(p => p.Preferences)
+                    .HasForeignKey(d => d.Idusers)
+                    .HasConstraintName("preferences_idusers_fkey");
             });
 
             modelBuilder.Entity<Status>(entity =>
