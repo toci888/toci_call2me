@@ -1,0 +1,6 @@
+@Toci.Call2Me.Api_HostAddress = http://localhost:5159
+
+GET {{Toci.Call2Me.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

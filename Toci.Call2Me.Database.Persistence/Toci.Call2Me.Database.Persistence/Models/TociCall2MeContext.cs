@@ -7,6 +7,8 @@ namespace Toci.Call2Me.Database.Persistence.Models
 {
     public partial class TociCall2MeContext : DbContext
     {
+        public DbSet<Conversation> Conversations { get; set; }
+        public DbSet<Transcript> Transcripts { get; set; }
         public TociCall2MeContext()
         {
         }
@@ -33,6 +35,12 @@ namespace Toci.Call2Me.Database.Persistence.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Conversation>()
+                .HasMany(c => c.Transcripts)
+                .WithOne(t => t.Conversation)
+                .HasForeignKey(t => t.ConversationId)
+                .OnDelete(DeleteBehavior.Cascade); // 
+
             modelBuilder.Entity<Friend>(entity =>
             {
                 entity.ToTable("friends");
